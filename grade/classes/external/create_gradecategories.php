@@ -231,6 +231,7 @@ class create_gradecategories extends external_api {
                 // If the submitted data was broken for any reason.
                 $warnings['database'] = $e->getMessage();
                 $transaction->rollback($e);
+            } finally {
                 return ['warnings' => $warnings];
             }
         }
